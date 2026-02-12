@@ -86,12 +86,12 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisSpacing: 10, 
           maxCrossAxisExtent: 200,
           children: <Widget>[
-            Container(padding: const EdgeInsets.all(8), color: Colors.red, child: const Text('1', style: TextStyle(fontSize: 20)),),
-            Container(padding: const EdgeInsets.all(8), color: Colors.orange, child: const Text('2', style: TextStyle(fontSize: 20)),),
-            Container(padding: const EdgeInsets.all(8), color: Colors.yellow, child: const Text('3', style: TextStyle(fontSize: 20)),),
-            Container(padding: const EdgeInsets.all(8), color: Colors.green, child: const Text('4', style: TextStyle(fontSize: 20)),),
-            Container(padding: const EdgeInsets.all(8), color: Colors.blue, child: const Text('5', style: TextStyle(fontSize: 20)),),
-            Container(padding: const EdgeInsets.all(8), color: Colors.purple, child: const Text('6', style: TextStyle(fontSize: 20)),),
+            Container(alignment: Alignment.center, padding: const EdgeInsets.all(8), color: Colors.red, child: const Text('1', style: TextStyle(fontSize: 100, color: Colors.white), textAlign: TextAlign.center,),),
+            Container(alignment: Alignment.center, padding: const EdgeInsets.all(8), color: Colors.orange, child: const Text('2', style: TextStyle(fontSize: 100, color: Colors.white), textAlign: TextAlign.center,),),
+            Container(alignment: Alignment.center, padding: const EdgeInsets.all(8), color: Colors.yellow, child: const Text('3', style: TextStyle(fontSize: 100, color: Colors.white), textAlign: TextAlign.center,),),
+            Container(alignment: Alignment.center, padding: const EdgeInsets.all(8), color: Colors.green, child: const Text('4', style: TextStyle(fontSize: 100, color: Colors.white), textAlign: TextAlign.center,),),
+            Container(alignment: Alignment.center, padding: const EdgeInsets.all(8), color: Colors.blue, child: const Text('5', style: TextStyle(fontSize: 100, color: Colors.white), textAlign: TextAlign.center,),),
+            Container(alignment: Alignment.center, padding: const EdgeInsets.all(8), color: Colors.purple, child: const Text('6', style: TextStyle(fontSize: 100, color: Colors.white), textAlign: TextAlign.center,),),
           ],),),
         Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget> [
           Container(
