@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+import 'package:fluttertoast/fluttertoast.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -28,7 +28,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
-    return DefaultTabController(length: 2, child: Scaffold(
+    return DefaultTabController(length: 4, child: Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.lightBlue,
         title: Text(
@@ -42,7 +42,10 @@ class _MyHomePageState extends State<MyHomePage> {
         bottom: TabBar(tabs: [
           Tab(icon: Icon(Icons.tab)),
           Tab(icon: Icon(Icons.image)),
-        ]),
+          Tab(icon: Icon(Icons.card_membership)),
+          Tab(icon: Icon(Icons.line_weight_rounded))
+        ],
+        ),
       ),
       body: TabBarView(children: [
         Center(child: ListView(children: <Widget>[
@@ -71,7 +74,166 @@ class _MyHomePageState extends State<MyHomePage> {
             Container(padding: const EdgeInsets.all(8), color: Colors.blue, child: const Text('5', style: TextStyle(fontSize: 20)),),
             Container(padding: const EdgeInsets.all(8), color: Colors.purple, child: const Text('6', style: TextStyle(fontSize: 20)),),
           ],),),
+        Column(mainAxisAlignment: MainAxisAlignment.center, children: <Widget> [
+          Container(
+          width: 300,
+          height: 200,
+          padding: new EdgeInsets.all(10.0),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+           color: Colors.red,
+           elevation: 10,
+           child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.album, size:60),
+                title: Text('Sonu Nigam', style: TextStyle(fontSize: 30),),
+                subtitle: Text('Best of Sonu Nigam Music', style: TextStyle(fontSize: 18),),
+              )
+            ],
+           ),
+           ),),
+           Container(
+          width: 300,
+          height: 200,
+          padding: new EdgeInsets.all(10.0),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+           color: Colors.orange,
+           elevation: 10,
+           child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              const ListTile(
+                leading: Icon(Icons.album, size:60),
+                title: Text('Sonu Nigam', style: TextStyle(fontSize: 30),),
+                subtitle: Text('Best of Sonu Nigam Music', style: TextStyle(fontSize: 18),),
+              )
+            ],
+           ),
+           ),),
+           Container(
+          width: 300,
+          height: 200,
+          padding: new EdgeInsets.all(10.0),
+          child: Card(
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(15.0),
+            ),
+           color: Colors.yellow,
+           elevation: 10,
+           child: Column(
+            // mainAxisSize: MainAxisSize.min,
+            children: <Widget>[
+              ListTile(
+                leading: CircleAvatar(radius: 30.0, backgroundImage: NetworkImage('https://cdn.britannica.com/22/187222-050-07B17FB6/apples-on-a-tree-branch.jpg')),
+                title: Text('Strawberry Crème Cookie', style: TextStyle(fontSize: 24),),
+                subtitle: Text('Best of Sonu Nigam Music', style: TextStyle(fontSize: 15),),
+              )
+            ],
+           ),
+           ),),
+        ]),
+        Padding(padding: 
+        EdgeInsets.all(15),
+        child: Center(
+          child: ElevatedButton(
+            onPressed: showToast,
+            child: Text('CLick to Show'),
+          ),
+        ),)
       ]),
+      drawer: Drawer(
+        child: new ListView(
+          children: <Widget>[
+            new DrawerHeader(
+              margin: EdgeInsets.zero,
+              padding:EdgeInsets.zero,
+              child: UserAccountsDrawerHeader(
+                decoration: BoxDecoration(color: Colors.greenAccent),
+                accountName: Text('Usererere'), 
+                accountEmail: Text('home@dartflutter.kz'),
+                currentAccountPicture: Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.rectangle,
+                    color: Colors.amberAccent,
+                  ),
+                ),
+                )),
+          new ListTile(
+            title: new Text("Home"),
+              leading: Icon(Icons.home),
+            onTap: () {
+            const snackdemo = SnackBar(
+            content: Text('It"s a Home SnackBarr!!'),
+            backgroundColor: Colors.blueAccent,
+            elevation: 10,
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(5),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackdemo);
+        },
+          ),
+          new ListTile(
+            title: new Text("Profile"),
+              leading: Icon(Icons.person),
+            onTap: () {
+            const snackdemo = SnackBar(
+            content: Text('It"s a Profile SnackBarr!!'),
+            backgroundColor: Colors.blueAccent,
+            elevation: 10,
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(5),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackdemo);
+        },
+          ),
+          new ListTile(
+            title: new Text("Settings"),
+              leading: Icon(Icons.settings),
+            onTap: () {
+            const snackdemo = SnackBar(
+            content: Text('It"s a Settings SnackBarr!!'),
+            backgroundColor: Colors.blueAccent,
+            elevation: 10,
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(5),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackdemo);
+        },
+          ),
+          new ListTile(
+            title: new Text("Logout"),
+              leading: Icon(Icons.logout),
+            onTap: () {
+            const snackdemo = SnackBar(
+            content: Text('It"s a LogOut SnackBarr!!'),
+            backgroundColor: Colors.blueAccent,
+            elevation: 10,
+            behavior: SnackBarBehavior.floating,
+            margin: EdgeInsets.all(5),
+          );
+          ScaffoldMessenger.of(context).showSnackBar(snackdemo);
+        },
+          ),
+          ],
+        ),
+      ),
     ));
   }
+}
+void showToast(){
+  Fluttertoast.showToast(
+    msg: 'TOAST NOTIFICATION',
+    backgroundColor: Colors.grey,
+    toastLength: Toast.LENGTH_SHORT,
+    gravity: ToastGravity.BOTTOM,
+    timeInSecForIosWeb: 1,
+    textColor: Colors.white
+  );
 }
